@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="yum_gray">#6B6B6B</color>
+
+    <!-- Turuncu -->
+    <color name="yum_orange">#DD5440</color>
 </resources>

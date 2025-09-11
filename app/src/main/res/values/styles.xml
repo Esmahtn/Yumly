@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Başlık (Login, Register vs. büyük yazılar) -->
+    <style name="TextAppearance.Yumly.Headline" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">@font/heading_family</item>
+
+    </style>
+
+    <!-- Gövde metinleri (açıklama yazıları, form hintleri vs.) -->
+    <style name="TextAppearance.Yumly.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">@font/body_family</item>
+
+    </style>
+
+    <!-- Buton yazıları -->
+    <style name="TextAppearance.Yumly.Button" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:fontFamily">@font/body_family</item>
+
+        <item name="android:textAllCaps">false</item>
+
+    </style>
+
+</resources>
