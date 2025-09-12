@@ -1,300 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:background="@drawable/background"
     tools:context=".RegisterActivity">
 
-    <!-- Dikey Zincir (Chain) ve Bias ile Ortalanmış Grup -->
-    <!-- Bu grup, tüm elemanları dikeyde ortalamak için kullanılır -->
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/form_group"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="RegisterText,registerExp,divider2,usernameLabel,tilUsername,email,tilEmail1,passwordLabel,tilPassword1,passwordConfirmLabel,tilPasswordConfirm,registerButton,imageView2" /> <!-- Buton ve logo da gruba eklendi -->
+        android:padding="16dp">
 
-
-    <TextView
-        android:id="@+id/RegisterText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/breeserif_regular"
-        android:text="REGISTER"
-        android:textColor="#df4f3a"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toTopOf="@+id/registerExp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1"
-        app:layout_constraintVertical_chainStyle="packed" /> <!-- En üste yaklaştırıldı -->
-
-
-    <TextView
-        android:id="@+id/registerExp"
-        android:layout_width="268dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/robotoslab_medium"
-        android:gravity="center"
-        android:text="Register to continue using the app"
-        android:textColor="#575555"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RegisterText"
-        app:layout_constraintBottom_toTopOf="@+id/divider2"
-        />
-
-    <!-- DIVIDER -->
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:background="#6D6C6C"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerExp"
-        app:layout_constraintBottom_toTopOf="@+id/usernameLabel"
-        />
-
-    <!-- USERNAME LABEL -->
-    <TextView
-        android:id="@+id/usernameLabel"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/robotoslab_medium"
-        android:text="Username"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider2"
-        app:layout_constraintBottom_toTopOf="@+id/tilUsername"
-        />
-
-    <!-- USERNAME INPUT -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilUsername"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:hint="Enter your username"
-        app:boxCornerRadiusBottomEnd="20dp"
-        app:boxCornerRadiusBottomStart="20dp"
-        app:boxCornerRadiusTopEnd="20dp"
-        app:boxCornerRadiusTopStart="20dp"
-        app:boxStrokeColor="@color/ti_stroke_orange"
-        app:boxStrokeWidth="3dp"
-        app:boxStrokeWidthFocused="3dp"
-        app:endIconTint="@color/yum_orange"
-        app:placeholderText="enter your username"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/usernameLabel"
-        app:layout_constraintBottom_toTopOf="@+id/email"
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etUsername"
-            android:layout_width="match_parent"
+        <!-- Tüm formu kapsayan LinearLayout -->
+        <LinearLayout
+            android:id="@+id/registerContainer"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/breeserif_regular"
-            android:inputType="text"
-            android:paddingTop="12dp"
-            android:paddingBottom="12dp" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
 
-    <!-- EMAIL LABEL -->
-    <TextView
-        android:id="@+id/email"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/robotoslab_medium"
-        android:text="Email"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilUsername"
-        app:layout_constraintBottom_toTopOf="@+id/tilEmail1"
-        />
+        <!-- Başlık -->
+            <TextView
+                android:id="@+id/RegisterText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/breeserif_regular"
+                android:text="REGISTER"
+                android:textColor="#df4f3a"
+                android:textSize="40sp" />
 
-    <!-- EMAIL INPUT -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilEmail1"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:hint="Enter your email"
-        app:boxCornerRadiusBottomEnd="20dp"
-        app:boxCornerRadiusBottomStart="20dp"
-        app:boxCornerRadiusTopEnd="20dp"
-        app:boxCornerRadiusTopStart="20dp"
-        app:boxStrokeColor="@color/ti_stroke_orange"
-        app:boxStrokeWidth="3dp"
-        app:boxStrokeWidthFocused="3dp"
-        app:endIconDrawable="@drawable/ic_email_24"
-        app:endIconTint="@color/yum_orange"
-        app:placeholderText="enter your email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email"
-        app:layout_constraintBottom_toTopOf="@+id/passwordLabel"
-        >
+            <TextView
+                android:id="@+id/registerExp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/robotoslab_medium"
+                android:gravity="center"
+                android:text="Register to continue using the app"
+                android:textColor="#575555"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etEmail1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/breeserif_regular"
-            android:inputType="textEmailAddress"
-            android:paddingTop="12dp"
-            android:paddingBottom="12dp" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#6D6C6C"
+                android:layout_marginVertical="16dp" />
 
-    <!-- PASSWORD LABEL -->
-    <TextView
-        android:id="@+id/passwordLabel"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/robotoslab_medium"
-        android:text="Password"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilEmail1"
-        app:layout_constraintBottom_toTopOf="@+id/tilPassword1"
-        />
+            <!-- Username -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:fontFamily="@font/robotoslab_medium" />
 
-    <!-- PASSWORD INPUT -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilPassword1"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:hint="Enter password"
-        app:boxCornerRadiusBottomEnd="20dp"
-        app:boxCornerRadiusBottomStart="20dp"
-        app:boxCornerRadiusTopEnd="20dp"
-        app:boxCornerRadiusTopStart="20dp"
-        app:boxStrokeColor="@color/ti_stroke_orange"
-        app:boxStrokeWidth="3dp"
-        app:boxStrokeWidthFocused="3dp"
-        app:endIconMode="password_toggle"
-        app:endIconTint="@color/yum_orange"
-        app:placeholderText="enter password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passwordLabel"
-        app:layout_constraintBottom_toTopOf="@+id/passwordConfirmLabel"
-        >
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter your username"
+                app:boxStrokeColor="@color/ti_stroke_orange"
+                app:boxStrokeWidth="2dp"
+                app:boxCornerRadiusTopStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusBottomEnd="16dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etPassword1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/breeserif_regular"
-            android:inputType="textPassword"
-            android:paddingTop="12dp"
-            android:paddingBottom="12dp" />
-    </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:fontFamily="@font/breeserif_regular" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- CONFIRM PASSWORD LABEL -->
-    <TextView
-        android:id="@+id/passwordConfirmLabel"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/robotoslab_medium"
-        android:text="Confirm Password"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilPassword1"
-        app:layout_constraintBottom_toTopOf="@+id/tilPasswordConfirm"
-        />
+            <!-- Email -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Email"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:fontFamily="@font/robotoslab_medium" />
 
-    <!-- CONFIRM PASSWORD INPUT -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilPasswordConfirm"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:hint="Confirm your password"
-        app:boxCornerRadiusBottomEnd="20dp"
-        app:boxCornerRadiusBottomStart="20dp"
-        app:boxCornerRadiusTopEnd="20dp"
-        app:boxCornerRadiusTopStart="20dp"
-        app:boxStrokeColor="@color/ti_stroke_orange"
-        app:boxStrokeWidth="3dp"
-        app:boxStrokeWidthFocused="3dp"
-        app:endIconMode="password_toggle"
-        app:endIconTint="@color/yum_orange"
-        app:placeholderText="confirm password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passwordConfirmLabel"
-        app:layout_constraintBottom_toTopOf="@+id/registerButton"
-        >
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter your email"
+                app:endIconDrawable="@drawable/ic_email_24"
+                app:endIconTint="@color/yum_orange"
+                app:boxStrokeColor="@color/ti_stroke_orange"
+                app:boxStrokeWidth="2dp"
+                app:boxCornerRadiusTopStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusBottomEnd="16dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etPasswordConfirm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/breeserif_regular"
-            android:inputType="textPassword"
-            android:paddingTop="12dp"
-            android:paddingBottom="12dp" />
-    </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:fontFamily="@font/breeserif_regular" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- REGISTER BUTTON -->
-    <Button
-        android:id="@+id/registerButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="#DF4F3A"
-        android:fontFamily="@font/breeserif_regular"
-        android:paddingVertical="12dp"
-        android:text="Register"
-        android:textSize="20sp"
-        app:cornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilPasswordConfirm"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        />
+            <!-- Password -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Password"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:fontFamily="@font/robotoslab_medium" />
 
-    <!-- LOGO -->
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="120dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerButton"
-        app:srcCompat="@drawable/yumly_logo" />
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter password"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/yum_orange"
+                app:boxStrokeColor="@color/ti_stroke_orange"
+                app:boxStrokeWidth="2dp"
+                app:boxCornerRadiusTopStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusBottomEnd="16dp">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:fontFamily="@font/breeserif_regular" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- Confirm Password -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Confirm Password"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:fontFamily="@font/robotoslab_medium" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Confirm password"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/yum_orange"
+                app:boxStrokeColor="@color/ti_stroke_orange"
+                app:boxStrokeWidth="2dp"
+                app:boxCornerRadiusTopStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusBottomEnd="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPasswordConfirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:fontFamily="@font/breeserif_regular" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Register Button -->
+            <Button
+                android:id="@+id/registerButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#DF4F3A"
+                android:fontFamily="@font/breeserif_regular"
+                android:paddingVertical="12dp"
+                android:text="Register"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                app:cornerRadius="20dp" />
+
+            <!-- Logo -->
+            <ImageView
+                android:id="@+id/yumly_logo"
+                android:layout_width="120dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/yumly_logo"
+                android:contentDescription="App Logo"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
