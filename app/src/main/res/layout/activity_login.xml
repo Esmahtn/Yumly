@@ -1,222 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:background="@drawable/background"
     tools:context=".LoginActivity">
 
-    <!-- LOGIN TITLE -->
-    <TextView
-        android:id="@+id/LoginText"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/breeserif_regular"
-        android:text="LOGIN"
-        android:textColor="#df4f3a"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toTopOf="@+id/loginExp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3"
-        app:layout_constraintVertical_chainStyle="packed" />
+        android:padding="16dp">
 
-    <!-- SUBTITLE -->
-    <TextView
-        android:id="@+id/loginExp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/robotoslab_medium"
-        android:gravity="center"
-        android:text="Login to continue using the app"
-        android:textColor="#575555"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/divider1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LoginText" />
-
-    <!-- DIVIDER -->
-    <View
-        android:id="@+id/divider1"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:background="#6D6C6C"
-        app:layout_constraintBottom_toTopOf="@+id/email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginExp" />
-
-    <!-- EMAIL LABEL -->
-    <TextView
-        android:id="@+id/email"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/robotoslab_medium"
-        android:text="Email"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/tilEmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider1" />
-
-    <!-- EMAIL INPUT -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilEmail"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:hint="Enter your email"
-        app:boxCornerRadiusBottomEnd="20dp"
-        app:boxCornerRadiusBottomStart="20dp"
-        app:boxCornerRadiusTopEnd="20dp"
-        app:boxCornerRadiusTopStart="20dp"
-        app:boxStrokeColor="@color/ti_stroke_orange"
-        app:boxStrokeWidth="3dp"
-        app:boxStrokeWidthFocused="3dp"
-        app:endIconDrawable="@drawable/ic_email_24"
-        app:endIconTint="@color/yum_orange"
-        app:layout_constraintBottom_toTopOf="@+id/passwordLabel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etEmail"
-            android:layout_width="match_parent"
+        <LinearLayout
+        
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/breeserif_regular"
-            android:inputType="textEmailAddress"
-            android:paddingVertical="12dp" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-    <!-- PASSWORD LABEL -->
-    <TextView
-        android:id="@+id/passwordLabel"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/robotoslab_medium"
-        android:text="Password"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/tilPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilEmail" />
+            <!-- LOGIN TITLE -->
+            <TextView
+                android:id="@+id/LoginText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="@font/breeserif_regular"
+                android:text="LOGIN"
+                android:textColor="#df4f3a"
+                android:textSize="44sp" />
 
-    <!-- PASSWORD INPUT -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilPassword"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:hint="Enter password"
-        app:boxCornerRadiusBottomEnd="20dp"
-        app:boxCornerRadiusBottomStart="20dp"
-        app:boxCornerRadiusTopEnd="20dp"
-        app:boxCornerRadiusTopStart="20dp"
-        app:boxStrokeColor="@color/ti_stroke_orange"
-        app:boxStrokeWidth="3dp"
-        app:boxStrokeWidthFocused="3dp"
-        app:endIconMode="password_toggle"
-        app:endIconTint="@color/yum_orange"
-        app:layout_constraintBottom_toTopOf="@+id/tvForgot"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passwordLabel">
+            <!-- SUBTITLE -->
+            <TextView
+                android:id="@+id/loginExp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login to continue using the app"
+                android:textColor="#575555"
+                android:textSize="16sp"
+                android:fontFamily="@font/robotoslab_medium"
+                android:layout_marginBottom="24dp" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/breeserif_regular"
-            android:inputType="textPassword"
-            android:paddingVertical="12dp" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <!-- DIVIDER -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="20dp"
+                android:background="#6D6C6C" />
 
-    <!-- FORGOT PASSWORD -->
-    <TextView
-        android:id="@+id/tvForgot"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:fontFamily="@font/robotoslab_medium"
-        android:foreground="?attr/selectableItemBackground"
-        android:gravity="end"
-        android:padding="4dp"
-        android:text="Forgot Password?"
-        android:textColor="#575555"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/loginButton"
-        app:layout_constraintEnd_toEndOf="@+id/tilPassword"
-        app:layout_constraintStart_toStartOf="@+id/tilPassword"
-        app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
+            <!-- EMAIL LABEL -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Email"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:fontFamily="@font/robotoslab_medium" />
 
-    <!-- LOGIN BUTTON -->
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="#DF4F3A"
-        android:fontFamily="@font/breeserif_regular"
-        android:paddingVertical="12dp"
-        android:text="Login"
-        android:textSize="20sp"
-        app:cornerRadius="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/signUpPrompt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvForgot" />
+            <!-- EMAIL INPUT -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter your email"
+                app:endIconDrawable="@drawable/ic_email_24"
+                app:endIconTint="@color/yum_orange"
+                app:boxStrokeColor="@color/ti_stroke_orange"
+                app:boxStrokeWidth="2dp"
+                app:boxCornerRadiusTopStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusBottomEnd="16dp">
 
-    <!-- SIGN UP PROMPT -->
-    <TextView
-        android:id="@+id/signUpPrompt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:fontFamily="@font/robotoslab_medium"
-        android:foreground="?attr/selectableItemBackground"
-        android:padding="8dp"
-        android:text="Don't have an account? Sign Up"
-        android:textColor="#575555"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:fontFamily="@font/breeserif_regular"
+                    android:paddingVertical="12dp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+            <!-- PASSWORD LABEL -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Password"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:fontFamily="@font/robotoslab_medium" />
 
-    <!-- LOGO -->
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="120dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpPrompt"
-        app:srcCompat="@drawable/yumly_logo" />
+            <!-- PASSWORD INPUT -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter password"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/yum_orange"
+                app:boxStrokeColor="@color/ti_stroke_orange"
+                app:boxStrokeWidth="2dp"
+                app:boxCornerRadiusTopStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusBottomEnd="16dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:fontFamily="@font/breeserif_regular"
+                    android:paddingVertical="12dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- FORGOT PASSWORD -->
+            <TextView
+                android:id="@+id/tvForgot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Forgot Password?"
+                android:textColor="#575555"
+                android:textSize="14sp"
+                android:fontFamily="@font/robotoslab_medium"
+                android:gravity="end"
+                android:padding="4dp"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <!-- LOGIN BUTTON -->
+            <Button
+                android:id="@+id/loginButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:backgroundTint="#DF4F3A"
+                android:fontFamily="@font/breeserif_regular"
+                android:paddingVertical="12dp"
+                android:text="Login"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                app:cornerRadius="20dp" />
+
+            <!-- SIGN UP PROMPT -->
+            <TextView
+                android:id="@+id/signUpPrompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Don't have an account? Sign Up"
+                android:textColor="#575555"
+                android:textSize="16sp"
+                android:fontFamily="@font/robotoslab_medium"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp" />
+
+            <!-- LOGO -->
+            <ImageView
+                android:id="@+id/yumly_logo"
+                android:layout_width="120dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="28dp"
+                android:src="@drawable/yumly_logo"
+                android:contentDescription="App Logo"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
