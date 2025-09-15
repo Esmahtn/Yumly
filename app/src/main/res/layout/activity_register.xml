@@ -197,11 +197,11 @@
             <!-- Logo -->
             <ImageView
                 android:id="@+id/yumly_logo"
-                android:layout_width="120dp"
+                android:layout_width="119dp"
                 android:layout_height="55dp"
-                android:layout_marginTop="28dp"
-                android:src="@drawable/yumly_logo"
-                android:contentDescription="App Logo"/>
+                android:layout_marginTop="8dp"
+                android:contentDescription="App Logo"
+                android:src="@drawable/yumly_logo" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
