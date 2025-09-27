@@ -1,10 +1,12 @@
-
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-
+    alias(libs.plugins.android.application) // Bu kalacak
+    alias(libs.plugins.kotlin.android)      // Bu kalacak
     alias(libs.plugins.compose.compiler)
 
+
+    id("com.google.gms.google-services") // Google Services için alias'ın yoksa bu kalabilir
+    // Eğer varsa, bunu da alias ile değiştir:
+    // alias(libs.plugins.google.gms.services) gibi
 }
 
 android {
@@ -37,7 +39,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "11" // 19 yerine 11 kullan
+        jvmTarget = "11"
     }
 
     buildFeatures {
@@ -45,7 +47,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.15"
+        kotlinCompilerExtensionVersion = "1.5.15" // İdealde bu da libs.versions.toml'dan gelmeli
     }
 }
 
@@ -55,7 +57,10 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-
+    // Import the Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:34.3.0"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-auth")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -73,3 +78,4 @@ dependencies {
     // Compose Activity entegrasyonu
     implementation("androidx.activity:activity-compose:1.9.3")
 }
+
