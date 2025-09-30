@@ -77,5 +77,7 @@ dependencies {
 
     // Compose Activity entegrasyonu
     implementation("androidx.activity:activity-compose:1.9.3")
+    implementation("com.google.firebase:firebase-firestore")
+
 }
 
