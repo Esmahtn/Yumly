@@ -25,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
         val etPassword = findViewById<TextInputEditText>(R.id.etPassword)
         val btnLogin = findViewById<Button>(R.id.loginButton)
         val signUpPrompt = findViewById<TextView>(R.id.signUpPrompt)
+        val tvForgot = findViewById<TextView>(R.id.tvForgot)
 
         // Login butonuna tıklandığında
         btnLogin.setOnClickListener {
@@ -58,6 +59,28 @@ class LoginActivity : AppCompatActivity() {
         signUpPrompt.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
+        }
+
+        // "Forgot Password?" yazısına tıklandığında → Reset email gönder
+        tvForgot.setOnClickListener {
+            val email = etEmail.text.toString().trim()
+
+            if (email.isEmpty()) {
+                Toast.makeText(this, "Lütfen e-posta adresinizi girin", Toast.LENGTH_SHORT).show()
+            } else {
+                auth.sendPasswordResetEmail(email)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(this, "Şifre sıfırlama maili gönderildi!", Toast.LENGTH_LONG).show()
+                        } else {
+                            Toast.makeText(
+                                this,
+                                "Hata: ${task.exception?.message}",
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
+                    }
+            }
         }
     }
 }

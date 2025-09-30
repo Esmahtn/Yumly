@@ -54,7 +54,7 @@ class RegisterActivity : AppCompatActivity() {
                         Toast.makeText(this, "Kayıt başarılı!", Toast.LENGTH_SHORT).show()
 
                         // Kayıt sonrası HomeActivity'ye yönlendir
-                        val intent = Intent(this, HomeActivity::class.java)
+                        val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                         finish()
                     } else {

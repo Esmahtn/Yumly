@@ -1,5 +1,7 @@
 package com.example.yumly
 import androidx.compose.ui.tooling.preview.Preview
+import android.content.Intent
+import com.google.firebase.auth.FirebaseAuth
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -15,8 +17,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+
+
 
 class HomeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,6 +63,11 @@ fun HomeScreen() {
         // 4. Kafe Listesi
         CafeList()
         Spacer(modifier = Modifier.weight(1f))
+        // 🔴 Logout Butonu
+        LogoutButton()
+
+        Spacer(modifier = Modifier.height(12.dp))
+
 
         // 5. Bottom Navigation
         BottomNavBar()
@@ -187,6 +197,27 @@ fun CafeCard(
         }
     }
 }
+@Composable
+fun LogoutButton() {
+    val context = LocalContext.current
+    Button(
+        onClick = {
+            FirebaseAuth.getInstance().signOut()
+
+            val intent = Intent(context, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            }
+            context.startActivity(intent)
+        },
+        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFDF4F3A)),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp) // ✅ buton ekrana otursun diye ekledim
+    ) {
+        Text("Logout", color = Color.White)
+    }
+}
+
 
 
 @Composable
